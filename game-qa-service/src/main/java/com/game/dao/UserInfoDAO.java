@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 public class UserInfoDAO {
 
-    @Resource
+    @Resource  /*@Resource该注解将mapper引入到使用类中*/
     public UserInfoMapper userInfoMapper;
     /**
      * @desc 将用户数据插入数据库
@@ -28,7 +28,6 @@ public class UserInfoDAO {
     public int insertUserInfoDAO(UserInfoVO userInfoVO) {
         return userInfoMapper.insertUserInfoMapper(userInfoVO);
     }
-
 
     public List<UserInfoDO> getUserInfoDAO() {
         return userInfoMapper.getUserInfoListMapper();

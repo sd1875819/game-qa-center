@@ -1,5 +1,6 @@
 package com.game.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.game.pojo.UserInfoDO;
 import com.game.pojo.UserInfoVO;
@@ -13,7 +14,7 @@ import java.util.List;
  * @Version 1.0
  */
 @Mapper
-public interface UserInfoMapper {
+public interface UserInfoMapper extends BaseMapper<UserInfoVO> {
     //添加新的消息任务：
 //    String INSERT_STATEMENT = "INSERT INTO game-userinfo (nick_name, user_name, invest_time, email, tel_phone)" +
 //            " VALUES(#{nickName}, #{userName}, #{investTime}, #{email}, #{telPhone})";

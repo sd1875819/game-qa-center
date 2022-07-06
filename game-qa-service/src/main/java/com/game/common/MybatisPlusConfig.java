@@ -11,11 +11,11 @@ import org.springframework.context.annotation.Configuration;
  * @Author sunjin
  * @Date 2022/5/27 7:03 上午
  * @Version 1.0
- * @description mybatis-plus 分页插件
+ * @description mybatis-plus 分页插件，进行分页操作
  */
 
 @Configuration
-@MapperScan("com.game.mapper")
+@MapperScan("com.game.mapper")  /*设置分页插件在执行时直接扫描com.game.mapper包的内容*/
 public class MybatisPlusConfig {
 
     /**

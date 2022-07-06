@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.game.common.Result;
 import com.game.dao.UserInfoDAO;
 import com.game.mapper.UserInfoMapper;
 import com.game.pojo.UserInfoDO;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.transform.Result;
 import java.util.List;
 
 import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
@@ -31,11 +31,11 @@ import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
  * @Date 2020/8/19 10:19
  * @Version 1.0
  */
-@RestController
+@RestController   /*定义该Controller类是用来返回json数据的*/
 @Slf4j
 @CrossOrigin
 @Component
-@RequestMapping("/user")   //统一的路由
+@RequestMapping("/user")   //定义该接口统一的路由
 
 public class UserInfoController {
 
@@ -46,13 +46,13 @@ public class UserInfoController {
     UserInfoDAO userInfoDAO;
     UserInfoMapper userInfoMapper;
 
-    /*将用户信息存入数据库*/
+    /*@PostMapping 表示定义一个post接口*/
     @PostMapping(value = "/userInfo/submit")
-    public int submitUserInfo(@RequestBody UserInfoVO userInfoVO) {  //@RequestBody就是把前端传过来的json对象映射为java实体UserInfoVO
+    public Result submitUserInfo(@RequestBody UserInfoVO userInfoVO) {  /*@RequestBody就是把前端传过来的json对象映射为UserInfoVO的java实体*/
+        /* 将新增的用户信息插入数据库*/
+        userInfoService.insertUserInfoService(userInfoVO);
 
-        int insertResultCode = userInfoService.insertUserInfoService(userInfoVO);
-
-        return insertResultCode;
+        return Result.success();
     }
 /*
         *//*从数据库分页查询*//*

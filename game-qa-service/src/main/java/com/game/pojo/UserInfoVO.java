@@ -1,5 +1,7 @@
 package com.game.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,9 +13,11 @@ import lombok.Setter;
  */
 @Data
 public class UserInfoVO {
+    @TableId(type = IdType.AUTO) /*设置id为自动生成的自增id*/
+    private Integer id;
     private String userName;
-    private String nickName;
-    private String investTime;
-    private String email;
-    private String telPhone;
+    private String passWord;
+    private Integer age;
+    private String sex;
+    private String address;
 }
