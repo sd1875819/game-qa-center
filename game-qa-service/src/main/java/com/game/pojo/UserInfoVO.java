@@ -15,7 +15,8 @@ import lombok.Setter;
 public class UserInfoVO {
     @TableId(type = IdType.AUTO) /*设置id为自动生成的自增id*/
     private Integer id;
-    private String userName;
+    private String username;
+    private String nickName;
     private String passWord;
     private Integer age;
     private String sex;
